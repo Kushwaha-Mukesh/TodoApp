@@ -1,14 +1,18 @@
 .addTodo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-input {
-    font-size: 20px;
-    width: 70%;
+.todoInput {
+    font-size: 18px;
+    width: 50%;
 }
 
-button {
-    font-size: 20px;
-    width: 25%;
+input[type=date] {
+    font-size: 18px;
+}
+
+.addTodoBtn {
+    background-color: green;
 }

@@ -1,21 +1,19 @@
 import styles from "./TodoItems.module.css";
-function TodoItems({ todoitems, handleEdit, edit }) {
+import { MdDelete } from "react-icons/md";
+
+function TodoItems({ todoitems, onDelete }) {
   return (
     <>
       {todoitems.map((todoitem) => (
-        <div key={todoitem} className={styles.todoItems}>
-          <input
-            type="text"
-            name=""
-            id=""
-            value={todoitem}
-            readOnly={!edit}
-            className={styles.inputStyle}
-          />
-          <button className={styles.edit} onClick={handleEdit}>
-            {edit ? "Save" : "Edit"}
+        <div key={todoitem.todoName} className={styles.todoItems}>
+          <p className={styles.listTodo}>{todoitem.todoName}</p>
+          <p className={styles.listDate}>{todoitem.todoDate}</p>
+          <button
+            className={styles.delete}
+            onClick={() => onDelete(todoitem.todoName)}
+          >
+            <MdDelete />
           </button>
-          <button className={styles.delete}>Delete</button>
         </div>
       ))}
     </>

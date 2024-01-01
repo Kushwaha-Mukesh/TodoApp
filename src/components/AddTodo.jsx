@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styles from "./AddTodo.module.css";
-function AddTodo({ handleTodo, handleChange, newTodo }) {
+import { IoMdAddCircle } from "react-icons/io";
+
+function AddTodo({ handleTodo, handleChange, newTodo, handleDate, date }) {
   return (
     <div className={styles.addTodo}>
       <input
@@ -10,9 +13,15 @@ function AddTodo({ handleTodo, handleChange, newTodo }) {
         onChange={(e) => handleChange(e)}
         className={styles.todoInput}
       />
-      <input type="date" name="" id="" />
+      <input
+        type="date"
+        name=""
+        id=""
+        value={date}
+        onChange={(e) => handleDate(e)}
+      />
       <button className={styles.addTodoBtn} onClick={(e) => handleTodo(e)}>
-        Add Todo
+        <IoMdAddCircle />
       </button>
     </div>
   );

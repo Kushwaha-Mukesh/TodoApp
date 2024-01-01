@@ -3,7 +3,7 @@ function InfoTodo({ todoitems }) {
   return (
     <>
       {todoitems.length === 0 && (
-        <div className={styles.infoTodo}>Add your Todo😊</div>
+        <div className={styles.infoTodo}>Add your Todo😀</div>
       )}
     </>
   );

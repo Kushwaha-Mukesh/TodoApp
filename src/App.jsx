@@ -5,30 +5,16 @@ import InfoTodo from "./components/InfoTodo";
 import "./App.css";
 
 function App() {
-  const [newTodo, setNewTodo] = useState("");
   const [todoitems, setTodoItems] = useState([]);
-  const [date, setDate] = useState("");
 
-  function handleChange(e) {
-    setNewTodo(e.target.value);
-  }
-
-  function handleDate(e) {
-    setDate(e.target.value);
-  }
-
-  function handleTodo(e) {
-    if (e.key === "Enter" || e.type === "click") {
-      if (newTodo) {
-        const todolist = {
-          todoName: newTodo,
-          todoDate: date,
-        };
-        let newTodoItems = [...todoitems, todolist];
-        setTodoItems(newTodoItems);
-        setNewTodo("");
-        setDate("");
-      }
+  function newTodoItems(newTodoName, newTodoDate) {
+    if (newTodoName) {
+      console.log(`Todo is ${newTodoName} and date is ${newTodoDate}`);
+      const newTodoItem = {
+        todoName: newTodoName,
+        todoDate: newTodoDate,
+      };
+      setTodoItems((currTodoItems) => [...currTodoItems, newTodoItem]);
     }
   }
 
@@ -43,13 +29,7 @@ function App() {
     <>
       <div className="todoContainer">
         <h1>Todo App</h1>
-        <AddTodo
-          handleTodo={handleTodo}
-          handleChange={handleChange}
-          newTodo={newTodo}
-          handleDate={handleDate}
-          date={date}
-        ></AddTodo>
+        <AddTodo newTodoItems={newTodoItems}></AddTodo>
         <p className="todolist">Todo List</p>
         <InfoTodo todoitems={todoitems}></InfoTodo>
         <TodoItems todoitems={todoitems} onDelete={handleDelete}></TodoItems>

@@ -2,6 +2,7 @@ import styles from "./TodoItems.module.css";
 import { MdDelete } from "react-icons/md";
 
 function TodoItems({ todoitems, onDelete }) {
+  // here is component return the todo list to UI component.
   return (
     <>
       {todoitems.map((todoitem) => (

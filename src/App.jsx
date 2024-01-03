@@ -5,15 +5,17 @@ import InfoTodo from "./components/InfoTodo";
 import "./App.css";
 
 function App() {
+  // todoitems state hold todo list of todo items.
   const [todoitems, setTodoItems] = useState([]);
 
+  // newTodoItems function takes todo name and todo date from add todo components and add to todoitems variable.
   function newTodoItems(newTodoName, newTodoDate) {
     if (newTodoName) {
-      console.log(`Todo is ${newTodoName} and date is ${newTodoDate}`);
       const newTodoItem = {
         todoName: newTodoName,
         todoDate: newTodoDate,
       };
+      // as todo items depends on previous state of todoitems so we pass function to setTodoItems
       setTodoItems((currTodoItems) => [...currTodoItems, newTodoItem]);
     }
   }
